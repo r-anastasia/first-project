@@ -1,8 +1,6 @@
 const CircularDependencyPlugin = require('circular-dependency-plugin')
 const { i18n } = require('./next-i18next.config')
 
-const path = process.env.NEXT_PUBLIC_ENV_VARIABLE
-
 const nextConfig = {
   i18n,
   webpack(config, { isServer }) {
@@ -43,9 +41,5 @@ const nextConfig = {
 }
 
 module.exports = {
-  images: {
-    loader: 'imgix',
-    path,
-  },
   ...nextConfig,
 }

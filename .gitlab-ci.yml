@@ -1,0 +1,40 @@
+include:
+  - project: 'wlb_project/deploy'
+    ref: branch-name
+    file: 'build.yml'
+
+build:dev:
+  variables:
+    TAGET: APP
+    APP: idynsys-site
+    BUILD_ARGS: "--build-arg=NEXT_PUBLIC_ENV_VARIABLE=http://back.idynsys.lo"
+  extends: .kaniko-build
+  only:
+    - dev
+
+deploy:dev:
+  variables:
+    APP: idynsys-site
+    NAMESPACE: idynsys-site
+    VALUE_FILE: "k8s/values_dev.yaml"
+  extends: .deploy
+  only:
+    - dev
+
+build:prod:
+  variables:
+    TAGET: APP
+    APP: idynsys-site
+    BUILD_ARGS: "--build-arg=NEXT_PUBLIC_ENV_VARIABLE=http://back.idynsys.org"
+  extends: .kaniko-build
+  only:
+    - main
+
+deploy:prod:
+  variables:
+    APP: idynsys-site
+    NAMESPACE: idynsys-site
+    VALUE_FILE: "k8s/values_main.yaml"
+  extends: .deploy
+  only:
+    - main

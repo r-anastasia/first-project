@@ -1,0 +1,21 @@
+{
+   "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier"
+  
+  ],
+  "rules": {
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "indentation": 2,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "comment-empty-line-before": ["never"],
+    "property-no-unknown": [ true, {
+      "ignoreProperties": [
+        "composes"
+      ]
+    }]
+  },
+  "syntax": "scss"
+}
