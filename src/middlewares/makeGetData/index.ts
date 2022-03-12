@@ -1,0 +1,1 @@
+export { makeGetData } from './makeGetData'

@@ -1,0 +1,22 @@
+{
+  "headings": {
+    "primary": "Первый проект"
+  },
+  "header": {
+    "navigation": {
+      "link1": "Ссылка 1",
+      "link2": "Ссылка 2"
+    }
+  },
+  "footer": {
+    "navigation": {
+      "main": "Лорем",
+      "vacancies": "Лорем",
+      "privacy": "Лорем лорем"
+    },
+    "description": "Лорем лорем кунем лорем кунем лорем кунем лорем кунем"
+  },
+  "toast": {
+    "button": "Закрыть"
+  }
+}
