@@ -50,7 +50,7 @@ export const Header = () => {
     <HeaderContainer>
       <HeaderWrapper maxWidth={1140}>
         <Link href="/">
-          <Logo src="/images/logo.svg" alt="logo" />
+          <Logo src="/images/logo.png" alt="logo" />
         </Link>
 
         <Navigation>

@@ -17,18 +17,18 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   align-items: center;
 
   height: ${({ size }) =>
-    size === ButtonSizes.s ? '40px' : size === ButtonSizes.m ? '48px' : 'auto'};
+    size === ButtonSizes.s ? '40px' : size === ButtonSizes.m ? '60px' : 'auto'};
 
   padding: 0 ${({ theme }) => theme.indents.xs};
   border: ${({ theme, variant }) =>
-    variant === ButtonVariants.secondary
-      ? `2px solid ${theme.colors.accent[700]}`
+    variant === ButtonVariants.primary
+      ? `4px solid ${theme.colors.accent[700]}`
       : 'none'};
   border-radius: ${({ theme }) => theme.borderRadius.s};
 
   background: ${({ theme, variant }) =>
     variant === ButtonVariants.secondary
-      ? theme.colors.basicLight
+      ? theme.colors.accent[400]
       : theme.colors.accent[700]};
 
   color: ${({ theme, variant }) =>

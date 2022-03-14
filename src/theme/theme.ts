@@ -3,8 +3,8 @@ const colors = {
   basicLight: '#FFFFFF',
   basicLightWithOpacity: 'rgba(255, 255, 255, 0.5)',
   accent: {
-    700: '#304FFE',
-    400: '#3D5AFE',
+    700: '#2D64B9',
+    400: '#FFCB04',
     200: '#536DFE',
     100: '#D6DCFF',
     50: '#EAEDFF',
@@ -15,10 +15,10 @@ const colors = {
 }
 
 const textColors = {
-  basic: '#212121',
+  basic: '#2D64B9',
   basicLite: 'rgba(33, 33, 33, 0.6)',
   inverted: '#FFFFFF',
-  link: '#304FFE',
+  link: '#BFBFBF',
 } as const
 
 const gradients = {
@@ -41,7 +41,7 @@ const indents = {
 const fontSize = {
   xxs: '12px',
   xs: '14px',
-  s: '18px',
+  s: '16px',
   m: '24px',
   l: '36px',
   xl: '48px',

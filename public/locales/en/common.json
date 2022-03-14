@@ -4,13 +4,13 @@
   },
   "header": {
     "navigation": {
-      "link1": "Link 1",
-      "link2": "Link 2"
+      "link1": "Pokemon",
+      "link2": "Characters"
     }
   },
   "footer": {
     "navigation": {
-      "main": "Lorem",
+      "main": "Gotta catch 'em all!",
       "vacancies": "Lorem",
       "privacy": "Lorem lorem"
     },

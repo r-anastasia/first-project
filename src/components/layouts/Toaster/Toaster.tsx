@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 // local libs
-import { PageContentHero } from 'src/components/generic'
+import { ContentWrapper } from 'src/components/generic'
 import { useStoreon } from 'src/store'
 import { ToasterContainer } from './styles'
 import { Toast } from './Toast'
@@ -12,11 +12,11 @@ export const Toaster = (): React.ReactPortal | null => {
     ? null
     : createPortal(
         <ToasterContainer>
-          <PageContentHero>
+          <ContentWrapper>
             {toaster.map((x) => (
               <Toast key={x.id} {...x} />
             ))}
-          </PageContentHero>
+          </ContentWrapper>
         </ToasterContainer>,
         document.body,
       )

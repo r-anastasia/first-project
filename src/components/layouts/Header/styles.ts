@@ -67,8 +67,8 @@ export const MobileNavigationContainer = styled.div`
 `
 
 export const Logo = styled.img`
-  width: 103px;
-  height: 32px;
+  width: auto;
+  height: 135px;
 `
 
 export const MobileLink = styled.div`
