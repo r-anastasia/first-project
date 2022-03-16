@@ -16,5 +16,11 @@
   },
   "toast": {
     "button": "Закрыть"
+  },
+  "page": {
+    "navigation": {
+      "previous": "« Предыдущая",
+      "next": "Следующая »"
+    }
   }
 }

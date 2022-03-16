@@ -16,5 +16,11 @@
   },
   "toast": {
     "button": "Close"
+  },
+  "page": {
+    "navigation": {
+      "previous": "« Previous",
+      "next": "Next »"
+    }
   }
 }

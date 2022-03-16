@@ -7,7 +7,7 @@ const colors = {
     400: '#FFCB04',
     200: '#536DFE',
     100: '#D6DCFF',
-    50: '#EAEDFF',
+    50: '#cccccc',
   },
   alert: '#D50000',
   overlay: 'rgba(33, 33, 33, 0.5)',
@@ -18,7 +18,7 @@ const textColors = {
   basic: '#2D64B9',
   basicLite: 'rgba(33, 33, 33, 0.6)',
   inverted: '#FFFFFF',
-  link: '#BFBFBF',
+  link: '#bfbfbf',
 } as const
 
 const gradients = {
@@ -49,6 +49,7 @@ const fontSize = {
 } as const
 
 const borderRadius = {
+  xs: '5px',
   s: '10px',
   m: '20px',
   l: '40px',

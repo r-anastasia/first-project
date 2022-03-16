@@ -1,12 +1,15 @@
 import { theme } from 'src/theme'
 import { Button } from 'src/components/generic'
-import { pokemonMapping } from './assets/fixtures'
 import { PokemonListContainer } from './styles'
+import { useRequest } from 'src/utils/useRequest'
+import { Data } from './types'
 
 export const PokemonList = () => {
+  const { data } = useRequest<Data>({ url: `/pokemon` })
+
   return (
     <PokemonListContainer>
-      {pokemonMapping.map((x) => (
+      {data?.results.map((x) => (
         <Button
           key={x.name}
           text={x.name}
