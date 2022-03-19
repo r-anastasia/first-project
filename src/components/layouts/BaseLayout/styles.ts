@@ -13,6 +13,10 @@ export const BaseWrapper = styled.div`
   ${media.xs} {
     padding-top: ${pageTopIndentMobile};
   }
+
+  background-image: url('images/background.png');
+  background-size: cover;
+  background-position: center;
 `
 
 export const BaseLayoutContainer = styled.div`

@@ -22,7 +22,7 @@ export const ToastContainer = styled.div`
 export const TextContainer = styled.div`
   margin-right: ${({ theme }) => theme.indents.xxs};
   font-size: ${({ theme }) => theme.fontSize.xs};
-  color: ${({ theme }) => theme.textColors.basicLite};
+  color: ${({ theme }) => theme.textColors.basic};
 
   ${media.xs} {
     margin: 0px 0px ${({ theme }) => theme.indents.xs} 0px;

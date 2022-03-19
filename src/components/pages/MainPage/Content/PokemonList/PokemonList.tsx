@@ -1,5 +1,6 @@
 import { theme } from 'src/theme'
-import { Button } from 'src/components/generic'
+import { ItemCard } from 'src/components/generic/ItemCard'
+import { Pagination } from '../Pagination'
 import { PokemonListContainer } from './styles'
 import { useRequest } from 'src/utils/useRequest'
 import { Data } from './types'
@@ -9,16 +10,18 @@ export const PokemonList = () => {
 
   return (
     <PokemonListContainer>
+      <Pagination />
       {data?.results.map((x) => (
-        <Button
+        <ItemCard
           key={x.name}
           text={x.name}
           width="200px"
-          margin={`0px 0px ${theme.indents.xs}`}
+          margin={`0px 0px ${theme.indents.s}`}
         >
           {x.name}
-        </Button>
+        </ItemCard>
       ))}
+      <Pagination />
     </PokemonListContainer>
   )
 }

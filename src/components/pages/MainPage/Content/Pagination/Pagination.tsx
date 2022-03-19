@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-import { Link } from 'src/components/generic/Link'
+import { Button } from 'src/components/generic/Button'
 import { PaginationContainer, PageNavigation, PageItem } from './styles'
 
 export const Pagination = () => {
@@ -8,13 +8,23 @@ export const Pagination = () => {
   return (
     <PaginationContainer>
       <PageNavigation>
-        <PageItem>
-          <Link href="/">{t(`previous`)}</Link>
-        </PageItem>
+        <Button
+          borderRadius="5px 0px 0px 5px"
+          size="s"
+          notUppercase
+          text="previous"
+        >
+          {t(`previous`)}
+        </Button>
         <PageItem>0 to 20 of 1126</PageItem>
-        <PageItem>
-          <Link href="/">{t(`next`)}</Link>
-        </PageItem>
+        <Button
+          borderRadius="0px 5px 5px 0px"
+          size="s"
+          notUppercase
+          text="next"
+        >
+          {t(`next`)}
+        </Button>
       </PageNavigation>
     </PaginationContainer>
   )

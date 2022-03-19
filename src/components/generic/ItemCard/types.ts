@@ -1,11 +1,11 @@
 import { CSSIndent } from 'src/types'
 
-export enum ButtonSizes {
+export enum ItemCardSizes {
   s = 's',
   m = 'm',
 }
 
-export enum ButtonVariants {
+export enum ItemCardVariants {
   primary = 'primary',
   secondary = 'secondary',
 }
@@ -18,25 +18,22 @@ type FloatProps = {
   left?: `${number}px`
 }
 
-export type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
+export type ItemCardProps = React.ComponentPropsWithoutRef<'button'> & {
   text?: string
-  size?: keyof typeof ButtonSizes
-  variant?: keyof typeof ButtonVariants
-  icon?: JSX.Element
+  size?: keyof typeof ItemCardSizes
+  variant?: keyof typeof ItemCardVariants
   float?: FloatProps
   margin?: CSSIndent
-  borderRadius?: CSSIndent
   width?: string
   notUppercase?: boolean
 }
 
-export type ButtonContainerProps = {
-  size: keyof typeof ButtonSizes
-  variant: keyof typeof ButtonVariants
+export type ItemCardContainerProps = {
+  size: keyof typeof ItemCardSizes
+  variant: keyof typeof ItemCardVariants
   disabled: boolean
   float?: FloatProps
   margin?: string
-  borderRadius?: string
   width?: string
   notUppercase?: boolean
 }
