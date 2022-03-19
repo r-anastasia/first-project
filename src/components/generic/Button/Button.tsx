@@ -1,7 +1,9 @@
 import React from 'react'
+// local libs
 import { ButtonContainer, IconWrapper } from './styles'
 // types
-import { ButtonProps, ButtonSizes, ButtonVariants } from './types'
+import type { ButtonProps } from './types'
+import { ButtonSizes, ButtonVariants } from './types'
 
 export const Button = ({
   text,

@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next'
+// local libs
 import { Button } from 'src/components/generic/Button'
 import { PaginationContainer, PageNavigation, PageItem } from './styles'
 

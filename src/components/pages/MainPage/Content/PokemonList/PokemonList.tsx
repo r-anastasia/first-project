@@ -1,9 +1,10 @@
-import { theme } from 'src/theme'
-import { ItemCard } from 'src/components/generic/ItemCard'
-import { Pagination } from '../Pagination'
+// local libs
+import { Pokemon } from './Pokemon'
 import { PokemonListContainer } from './styles'
+import { Pagination } from 'src/components/generic'
 import { useRequest } from 'src/utils/useRequest'
-import { Data } from './types'
+// types
+import type { Data } from './types'
 
 export const PokemonList = () => {
   const { data } = useRequest<Data>({ url: `/pokemon` })
@@ -12,14 +13,9 @@ export const PokemonList = () => {
     <PokemonListContainer>
       <Pagination />
       {data?.results.map((x) => (
-        <ItemCard
-          key={x.name}
-          text={x.name}
-          width="200px"
-          margin={`0px 0px ${theme.indents.s}`}
-        >
+        <Pokemon key={x.name} text={x.name}>
           {x.name}
-        </ItemCard>
+        </Pokemon>
       ))}
       <Pagination />
     </PokemonListContainer>

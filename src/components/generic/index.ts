@@ -1,4 +1,5 @@
 export { Link } from './Link'
 export { Button } from './Button'
+export { Pagination } from './Pagination'
 export { LocaleSwitcher } from './LocaleSwitcher'
 export { ContentWrapper } from './ContentWrapper'

@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 // local libs
 import { StyledLink } from './styles'
 // types
-import { LinkProps } from './types'
+import type { LinkProps } from './types'
 
 export const Link: React.FC<LinkProps> = ({
   children,

@@ -1,5 +1,6 @@
-import { ContentWrapper } from 'src/components/generic'
+// local libs
 import { PokemonList } from './PokemonList'
+import { ContentWrapper } from 'src/components/generic'
 import { ContentContainer } from './styles'
 
 export const Content = () => {

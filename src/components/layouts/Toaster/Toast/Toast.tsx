@@ -5,7 +5,7 @@ import { useStoreon } from 'src/store'
 import { ToasterActions } from 'src/store/toaster'
 import { ToastContainer, ButtonContainer, TextContainer } from './styles'
 // types
-import { ToastProps } from './types'
+import type { ToastProps } from './types'
 
 export const Toast = ({
   id,
