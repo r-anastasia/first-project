@@ -6,9 +6,17 @@ import { PaginationContainer, PageNavigation, PageItem } from './styles'
 // types
 import type { PaginationProps } from './types'
 
+const getLink = (x: number): string => {
+  const offset = String(x)
+  return `?${new URLSearchParams({ offset }).toString()}`
+}
+
 export const Pagination = ({ next, previous, count }: PaginationProps) => {
   const { t } = useTranslation()
   const { push } = useRouter()
+
+  const nextLink = next ? getLink(next) : null
+  const previousLink = previous ? getLink(previous) : null
 
   const handleClick = (x: string | null) => (): void => {
     if (x) push(x)
@@ -22,19 +30,23 @@ export const Pagination = ({ next, previous, count }: PaginationProps) => {
           size="s"
           notUppercase
           text="previous"
-          onClick={handleClick(previous)}
-          disabled={!Boolean(previous)}
+          onClick={handleClick(nextLink)}
+          disabled={!Boolean(nextLink)}
         >
           {t(`previous`)}
         </Button>
-        <PageItem>{`0 to 20 of ${count}`}</PageItem>
+        <PageItem>
+          {next !== null
+            ? `${next - 20} to ${next} of ${count}`
+            : `${previous + 20} to ${previous + 40} of ${count}`}
+        </PageItem>
         <Button
           borderRadius="0px 5px 5px 0px"
           size="s"
           notUppercase
           text="next"
-          onClick={handleClick(next)}
-          disabled={!Boolean(next)}
+          onClick={handleClick(previousLink)}
+          disabled={!Boolean(previousLink)}
         >
           {t(`next`)}
         </Button>

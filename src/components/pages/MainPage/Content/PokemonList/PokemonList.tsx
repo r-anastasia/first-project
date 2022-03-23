@@ -6,21 +6,21 @@ import { useRequest } from 'src/utils/useRequest'
 // types
 import type { Data } from './types'
 
-const getLink = (next: string): string | null => {
-  const url = new URL(next)
+const getOffset = (x: string): number | null => {
+  const url = new URL(x)
   const params = new URLSearchParams(url.search)
   const offset = params.get('offset')
 
-  return offset ? new URLSearchParams({ offset }).toString() : null
+  return offset ? Number(offset) : null
 }
 
 export const PokemonList = () => {
   const { data } = useRequest<Data>({ url: `/pokemon` })
 
-  if (!data) return
+  if (!data) return null
 
-  const next = data.next ? getLink(data.next) : null
-  const previous = data.previous ? getLink(data.previous) : null
+  const next = data.next ? getOffset(data.next) : null
+  const previous = data.previous ? getOffset(data.previous) : null
   const count = data.count
 
   return (
@@ -32,6 +32,7 @@ export const PokemonList = () => {
         </Pokemon>
       ))}
       <Pagination next={next} previous={previous} count={count} />
+      <h3>{`${previous}`}</h3>
     </PokemonListContainer>
   )
 }

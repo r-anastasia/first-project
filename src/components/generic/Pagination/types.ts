@@ -1,5 +1,5 @@
 export type PaginationProps = {
-  next: string | null
-  previous: string | null
+  next: number | null
+  previous: number | null
   count: number
 }
