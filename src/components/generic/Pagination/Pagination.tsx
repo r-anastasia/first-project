@@ -30,23 +30,25 @@ export const Pagination = ({ next, previous, count }: PaginationProps) => {
           size="s"
           notUppercase
           text="previous"
-          onClick={handleClick(nextLink)}
-          disabled={!Boolean(nextLink)}
+          onClick={handleClick(previousLink)}
+          disabled={!Boolean(previous)}
         >
           {t(`previous`)}
         </Button>
         <PageItem>
-          {next !== null
+          {next
             ? `${next - 20} to ${next} of ${count}`
-            : `${previous + 20} to ${previous + 40} of ${count}`}
+            : previous
+            ? `${previous + 20} to ${previous + 40} of ${count}`
+            : null}
         </PageItem>
         <Button
           borderRadius="0px 5px 5px 0px"
           size="s"
           notUppercase
           text="next"
-          onClick={handleClick(previousLink)}
-          disabled={!Boolean(previousLink)}
+          onClick={handleClick(nextLink)}
+          disabled={!Boolean(nextLink)}
         >
           {t(`next`)}
         </Button>

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 // local libs
 import { Pokemon } from './Pokemon'
 import { PokemonListContainer } from './styles'
@@ -5,6 +6,7 @@ import { Pagination } from 'src/components/generic'
 import { useRequest } from 'src/utils/useRequest'
 // types
 import type { Data } from './types'
+import type { ParsedUrlQuery } from 'querystring'
 
 const getOffset = (x: string): number | null => {
   const url = new URL(x)
@@ -14,8 +16,15 @@ const getOffset = (x: string): number | null => {
   return offset ? Number(offset) : null
 }
 
+const getQueryStringForRequest = (query: ParsedUrlQuery): string => {
+  const offset = String(query.offset)
+  return `?${new URLSearchParams({ offset })}`
+}
+
 export const PokemonList = () => {
-  const { data } = useRequest<Data>({ url: `/pokemon` })
+  const { query } = useRouter()
+  const qs = getQueryStringForRequest(query)
+  const { data } = useRequest<Data>({ url: `/pokemon${qs}` })
 
   if (!data) return null
 
@@ -32,7 +41,6 @@ export const PokemonList = () => {
         </Pokemon>
       ))}
       <Pagination next={next} previous={previous} count={count} />
-      <h3>{`${previous}`}</h3>
     </PokemonListContainer>
   )
 }

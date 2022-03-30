@@ -44,7 +44,7 @@ const fontSize = {
   xs: '14px',
   s: '16px',
   m: '24px',
-  l: '36px',
+  l: '32px',
   xl: '48px',
   xxl: '64px',
 } as const
