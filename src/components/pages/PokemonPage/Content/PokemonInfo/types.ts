@@ -4,7 +4,6 @@ export type Data = {
   types: Array<{
     type: {
       name: string
-      url: string
     }
   }>
   base_experience: number
@@ -13,7 +12,6 @@ export type Data = {
   abilities: Array<{
     ability: {
       name: string
-      url: string
     }
   }>
   sprites: {

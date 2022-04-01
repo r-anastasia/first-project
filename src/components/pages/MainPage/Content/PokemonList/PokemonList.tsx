@@ -22,7 +22,7 @@ const getQueryStringForRequest = (query: ParsedUrlQuery): string => {
 }
 
 export const PokemonList = () => {
-  const { query } = useRouter()
+  const { query, push } = useRouter()
   const qs = getQueryStringForRequest(query)
   const { data } = useRequest<Data>({ url: `/pokemon${qs}` })
 
@@ -32,11 +32,19 @@ export const PokemonList = () => {
   const previous = data.previous ? getOffset(data.previous) : null
   const count = data.count
 
+  const handleClick = (x: string) => (): void => {
+    const y = x.match(/pokemon\/\d+/)?.toString()
+    const id = y ? y.match(/\d+/)?.toString() : null
+    const link = id ? `pokemon?${new URLSearchParams({ id }).toString()}` : null
+
+    if (link) push(link)
+  }
+
   return (
     <PokemonListContainer>
       <Pagination next={next} previous={previous} count={count} />
       {data?.results.map((x) => (
-        <Pokemon key={x.name} text={x.name}>
+        <Pokemon key={x.name} text={x.name} onClick={handleClick(x.url)}>
           {x.name}
         </Pokemon>
       ))}
