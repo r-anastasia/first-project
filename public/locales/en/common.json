@@ -19,6 +19,19 @@
   },
   "pagination": {
     "previous": "Previous",
+    "count": "{{start}} to {{end}} of {{all}}",
     "next": "Next"
+  },
+  "navigation": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "pokemonInfo": {
+    "item1": "Default character:",
+    "item2": "Type:",
+    "item3": "Base experience:",
+    "item4": "Height:",
+    "item5": "Weight:",
+    "item6": "Abilities:"
   }
 }

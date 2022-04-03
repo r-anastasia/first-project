@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 // local libs
 import {
@@ -16,6 +17,8 @@ import { useRequest } from 'src/utils/useRequest'
 import type { Data } from './types'
 
 export const PokemonInfo = () => {
+  const { t } = useTranslation()
+
   const { query } = useRouter()
   const { data } = useRequest<Data>({ url: `/pokemon/${query.id}/` })
 
@@ -48,13 +51,23 @@ export const PokemonInfo = () => {
         <PokemonName>{name}</PokemonName>
         <PokemonInfoItems>
           <PokemonInfoItem>
-            Default character: {String(is_default)}
+            {t(`pokemonInfo.item1`)} {String(is_default)}
           </PokemonInfoItem>
-          <PokemonInfoItem>Type: {type}</PokemonInfoItem>
-          <PokemonInfoItem>Base experience: {base_experience}</PokemonInfoItem>
-          <PokemonInfoItem>Height: {height}</PokemonInfoItem>
-          <PokemonInfoItem>Weight: {weight}</PokemonInfoItem>
-          <PokemonInfoItem>Abilities: {abilitiesList}</PokemonInfoItem>
+          <PokemonInfoItem>
+            {t(`pokemonInfo.item2`)} {type}
+          </PokemonInfoItem>
+          <PokemonInfoItem>
+            {t(`pokemonInfo.item3`)} {base_experience}
+          </PokemonInfoItem>
+          <PokemonInfoItem>
+            {t(`pokemonInfo.item4`)} {height}
+          </PokemonInfoItem>
+          <PokemonInfoItem>
+            {t(`pokemonInfo.item5`)} {weight}
+          </PokemonInfoItem>
+          <PokemonInfoItem>
+            {t('pokemonInfo.item6')} {abilitiesList}
+          </PokemonInfoItem>
         </PokemonInfoItems>
         <PokemonNavigation>
           <ItemsNavigation next={next} previous={previous} />

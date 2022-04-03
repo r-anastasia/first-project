@@ -16,7 +16,7 @@ export const Pagination = ({ next, previous, count }: PaginationProps) => {
   const { push } = useRouter()
 
   const nextLink = next ? getLink(next) : null
-  const previousLink = previous ? getLink(previous) : null
+  const previousLink = typeof previous === 'number' ? getLink(previous) : null
 
   const handleClick = (x: string | null) => (): void => {
     if (x) push(x)
@@ -30,24 +30,30 @@ export const Pagination = ({ next, previous, count }: PaginationProps) => {
           size="s"
           text={t('pagination.previous')}
           onClick={handleClick(previousLink)}
-          disabled={!Boolean(previous)}
-        ></Button>
+          disabled={typeof previous !== 'number'}
+        />
         <PageItem>
           {next
-            ? `${next - 20} to ${next} of ${count}`
+            ? t('pagination.count', {
+                start: `${next - 20}`,
+                end: `${next}`,
+                all: `${count}`,
+              })
             : previous
-            ? `${previous + 20} to ${previous + 40} of ${count}`
+            ? t('pagination.count', {
+                start: `${previous + 20}`,
+                end: `${previous + 40}`,
+                all: `${count}`,
+              })
             : null}
         </PageItem>
         <Button
           borderRadius="0px 5px 5px 0px"
           size="s"
-          text="next"
+          text={t('pagination.next')}
           onClick={handleClick(nextLink)}
           disabled={!Boolean(nextLink)}
-        >
-          {t(`next`)}
-        </Button>
+        />
       </PageNavigation>
     </PaginationContainer>
   )

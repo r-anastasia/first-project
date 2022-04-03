@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 // local libs
 import { Button } from 'src/components/generic/Button'
@@ -11,6 +12,7 @@ const getLink = (x: number): string => {
 }
 
 export const ItemsNavigation = ({ next, previous }: ItemsNavigationProps) => {
+  const { t } = useTranslation()
   const { push } = useRouter()
 
   const nextLink = next ? getLink(next) : null
@@ -25,14 +27,14 @@ export const ItemsNavigation = ({ next, previous }: ItemsNavigationProps) => {
       <NavigationWrapper>
         <Button
           size="s"
-          text="previous"
+          text={t('navigation.previous')}
           onClick={handleClick(previousLink)}
-        >{`previous`}</Button>
+        />
         <Button
           size="s"
-          text={`next`}
+          text={t('navigation.next')}
           onClick={handleClick(nextLink)}
-        >{`next`}</Button>
+        />
       </NavigationWrapper>
     </ItemsNavigationContainer>
   )
