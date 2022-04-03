@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 // local libs
 import { Pokemon } from './Pokemon'
 import { PokemonListContainer } from './styles'
-import { Pagination } from 'src/components/generic'
+import { Pagination, Loader } from 'src/components/generic'
 import { useRequest } from 'src/utils/useRequest'
 // types
 import type { Data } from './types'
@@ -26,7 +26,7 @@ export const PokemonList = () => {
   const qs = getQueryStringForRequest(query)
   const { data } = useRequest<Data>({ url: `/pokemon${qs}` })
 
-  if (!data) return null
+  if (!data) return <Loader />
 
   const next = data.next ? getOffset(data.next) : null
   const previous = data.previous ? getOffset(data.previous) : null

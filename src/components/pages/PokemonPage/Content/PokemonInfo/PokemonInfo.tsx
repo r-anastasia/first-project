@@ -11,7 +11,7 @@ import {
   PokemonInfoItem,
   PokemonNavigation,
 } from './styles'
-import { ItemsNavigation } from 'src/components/generic/ItemsNavigation'
+import { ItemsNavigation, Loader } from 'src/components/generic'
 import { useRequest } from 'src/utils/useRequest'
 // types
 import type { Data } from './types'
@@ -22,7 +22,7 @@ export const PokemonInfo = () => {
   const { query } = useRouter()
   const { data } = useRequest<Data>({ url: `/pokemon/${query.id}/` })
 
-  if (!data) return null
+  if (!data) return <Loader />
 
   const {
     name,
