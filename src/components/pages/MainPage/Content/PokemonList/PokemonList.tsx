@@ -33,8 +33,8 @@ export const PokemonList = () => {
   const count = data.count
 
   const handleClick = (x: string) => (): void => {
-    const y = x.match(/pokemon\/\d+/)?.toString()
-    const id = y ? y.match(/\d+/)?.toString() : null
+    const y = x.match(/pokemon\/\d+/)?.[0]
+    const id = y ? y.match(/\d+/)?.[0] : null
     const link = id ? `pokemon?${new URLSearchParams({ id }).toString()}` : null
 
     if (link) push(link)

@@ -10,51 +10,54 @@ import {
   PokemonInfoItem,
   PokemonNavigation,
 } from './styles'
-import { Button } from 'src/components/generic/Button'
+import { ItemsNavigation } from 'src/components/generic/ItemsNavigation'
 import { useRequest } from 'src/utils/useRequest'
 // types
 import type { Data } from './types'
-import type { ParsedUrlQuery } from 'querystring'
-
-const getQueryStringForRequest = (query: ParsedUrlQuery): string => {
-  const id = String(query.id)
-  return `${id}`
-}
 
 export const PokemonInfo = () => {
   const { query } = useRouter()
-  const qs = getQueryStringForRequest(query)
-  const { data } = useRequest<Data>({ url: `/pokemon/${qs}/` })
+  const { data } = useRequest<Data>({ url: `/pokemon/${query.id}/` })
 
   if (!data) return null
 
-  const frontImage = data.sprites.front_default
-  const backImage = data.sprites.back_default
-  const isDefault = String(data.is_default)
-  const type = data.types.map((x) => `${x.type.name}`)
-  const abilities = data.abilities.map((x) => `${x.ability.name}`).join(', ')
+  const {
+    name,
+    sprites,
+    is_default,
+    types,
+    base_experience,
+    height,
+    weight,
+    abilities,
+  } = data
+
+  const type = types.map((x) => `${x.type.name}`)
+  const abilitiesList = abilities.map((x) => `${x.ability.name}`).join(', ')
+
+  const next = Number(query.id) + 1
+  const previous = Number(query.id) - 1
 
   return (
     <PokemonInfoContainer>
       <PokemonImagesWrapper>
-        <PokemonImage src={frontImage} alt="front image" />
-        <PokemonImage src={backImage} alt="back image" />
+        <PokemonImage src={sprites.front_default} alt="front image" />
+        <PokemonImage src={sprites.back_default} alt="back image" />
       </PokemonImagesWrapper>
       <PokemonInfoWrapper>
-        <PokemonName>{data.name}</PokemonName>
+        <PokemonName>{name}</PokemonName>
         <PokemonInfoItems>
-          <PokemonInfoItem>Default character: {isDefault}</PokemonInfoItem>
-          <PokemonInfoItem>Type: {type}</PokemonInfoItem>
           <PokemonInfoItem>
-            Base experience: {data.base_experience}
+            Default character: {String(is_default)}
           </PokemonInfoItem>
-          <PokemonInfoItem>Height: {data.height}</PokemonInfoItem>
-          <PokemonInfoItem>Weight: {data.weight}</PokemonInfoItem>
-          <PokemonInfoItem>Abilities: {abilities}</PokemonInfoItem>
+          <PokemonInfoItem>Type: {type}</PokemonInfoItem>
+          <PokemonInfoItem>Base experience: {base_experience}</PokemonInfoItem>
+          <PokemonInfoItem>Height: {height}</PokemonInfoItem>
+          <PokemonInfoItem>Weight: {weight}</PokemonInfoItem>
+          <PokemonInfoItem>Abilities: {abilitiesList}</PokemonInfoItem>
         </PokemonInfoItems>
         <PokemonNavigation>
-          <Button size="s" text="previous">{`previous`}</Button>
-          <Button size="s" text="next">{`next`}</Button>
+          <ItemsNavigation next={next} previous={previous} />
         </PokemonNavigation>
       </PokemonInfoWrapper>
     </PokemonInfoContainer>

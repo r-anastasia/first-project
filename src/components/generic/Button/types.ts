@@ -27,7 +27,7 @@ export type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
   margin?: CSSIndent
   borderRadius?: CSSIndent
   width?: string
-  notUppercase?: boolean
+  uppercase?: boolean
 }
 
 export type ButtonContainerProps = {
@@ -38,5 +38,5 @@ export type ButtonContainerProps = {
   margin?: string
   borderRadius?: string
   width?: string
-  notUppercase?: boolean
+  uppercase?: boolean
 }

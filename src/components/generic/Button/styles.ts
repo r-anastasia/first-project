@@ -43,7 +43,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
       ? theme.fontSize.xs
       : theme.fontSize.s};
   font-weight: 500;
-  text-transform: ${({ notUppercase }) => (notUppercase ? null : 'uppercase')};
+  text-transform: ${({ uppercase }) => (uppercase ? null : 'lowercase')};
 
   ${({ width }) => (!width ? null : `width: ${width}`)};
   ${({ margin }) => (!margin ? null : `margin: ${margin}`)};
