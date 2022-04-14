@@ -1,1 +1,5 @@
-export { PokemonList } from './PokemonList'
+export {
+  PokemonList,
+  getQueryStringForRequest,
+  getRequestConfig,
+} from './PokemonList'
